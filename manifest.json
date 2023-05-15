@@ -1,0 +1,35 @@
+{
+  "name": "Browser Snake",
+  "description": "Browser Snake",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "downloads",
+    "tabs",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [{
+    "resources": ["snakegame.js"],
+    "matches": ["<all_urls>"]
+  }]
+}
